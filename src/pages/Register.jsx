@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { registerRoute } from "../utils/APIRoutes";
 
-export default function Register() {
+export default function Register(){
   const navigate = useNavigate();
   const toastOptions = {
     position: "bottom-right",
@@ -30,7 +30,8 @@ export default function Register() {
   }, []);
 
   const handleChange = (event) => {
-    setValues({ ...values, [event.target.name]: event.target.value });
+    setValues({ ...values, 
+    [event.target.name]: event.target.value });
   };
 
   const handleValidation = () => {
@@ -61,7 +62,7 @@ export default function Register() {
   };
     const handleSubmit = async (event) => {
     event.preventDefault();
-    if (handleValidation()) {
+    if (handleValidation()){
       const { email, username, password } = values;
       const { data } = await axios.post(registerRoute, {
         username,
